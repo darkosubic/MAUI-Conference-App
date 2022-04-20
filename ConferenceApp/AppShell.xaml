@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="ConferenceApp.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:ConferenceApp"
+    xmlns:viewmodels="clr-namespace:ConferenceApp.ViewModels"    
+    xmlns:pages="clr-namespace:ConferenceApp"
+    x:DataType="viewmodels:ShellViewModel"
+    Shell.FlyoutBehavior="Disabled">
+
+    <!--<Shell.Style>
+        <Style TargetType="TabBar">
+            <Setter Property="Shell.TabBarBackgroundColor"
+            Value="Red" />
+            <Setter Property="Shell.TabBarTitleColor"
+            Value="Black" />
+            <Setter Property="Shell.TabBarUnselectedColor"
+            Value="Green" />
+        </Style>
+
+    </Shell.Style>-->
+    <!--<ShellContent
+        Title="Hello, World!"
+        ContentTemplate="{DataTemplate local:MainPage}"
+        Route="MainPage" />-->
+
+    <TabBar>
+        <TabBar.Style>
+            <Style TargetType="TabBar">
+                <Setter Property="Shell.TabBarBackgroundColor"
+                        Value="CornflowerBlue" />
+                <Setter Property="Shell.TabBarTitleColor"
+                        Value="AntiqueWhite" />
+                <Setter Property="Shell.TabBarUnselectedColor"
+                        Value="Black" />
+            </Style>
+        </TabBar.Style>
+        <Tab Title="{Binding Home.Title}"
+             Icon="{Binding Home.Icon}">
+            <ShellContent ContentTemplate="{DataTemplate pages:HomePage}" />
+        </Tab>
+        <Tab Title="{Binding Presenters.Title}"
+             Icon="{Binding Presenters.Icon}">
+            <ShellContent ContentTemplate="{DataTemplate pages:PresentersPage}" />
+        </Tab>
+        <Tab Title="{Binding Agenda.Title}"
+             
+             Icon="{Binding Agenda.Icon}">
+            <ShellContent ContentTemplate="{DataTemplate pages:AgendaPage}" />
+        </Tab>
+    </TabBar>
+
+</Shell>
