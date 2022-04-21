@@ -31,6 +31,7 @@ public partial class HomePage : ContentPage
 
     private async void Button_Clicked(object sender, EventArgs e)
     {
+        string buttonText = allPresentersNavigationButton.Text;
         await Shell.Current.GoToAsync(nameof(PresentersPage));
     }
 }

@@ -3,9 +3,93 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ConferenceApp.PresentersPage"
              Title="Presenters">
-    <VerticalStackLayout Spacing="10">
-        <Label Text="Welcome to the Presenters Page!!!"
+    <ScrollView>
+        <VerticalStackLayout Spacing="10">
+            <Label Text="VIP Presenters"
                 VerticalOptions="Center" 
-                HorizontalOptions="Center" />
-    </VerticalStackLayout>
+                HorizontalOptions="StartAndExpand" />
+
+            <ListView ItemsSource="{Binding VipPresenters}" RowHeight="{OnPlatform Android='80', Default='100'}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Frame BackgroundColor="#ebf5fb">
+                                <Grid Padding="1">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition Width="Auto" />
+                                    </Grid.ColumnDefinitions>
+                                    <Image
+                               Grid.Column="0"
+                               Grid.RowSpan="2"
+                               Source="{Binding Image}"
+                               Aspect="AspectFill"
+                               HeightRequest="60"
+                               WidthRequest="60" />
+
+                                    <Label Grid.Column="1"
+                               Text="{Binding FullName}"
+                               VerticalTextAlignment="Start"
+                               FontAttributes="Bold" 
+                               Margin="10,15"/>
+                                    <Label Grid.Column="1"
+                               Text="{Binding Company}"
+                               VerticalTextAlignment="End"
+                               FontAttributes="Bold" 
+                               Margin="10,0"/>
+                                </Grid>
+                            </Frame>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+            <Label Text="Other confirmed Presenters"
+                VerticalOptions="Center" 
+                HorizontalOptions="StartAndExpand" />
+
+            <ListView ItemsSource="{Binding Presenters}" RowHeight="{OnPlatform Android='80', Default='61'}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Frame BackgroundColor="#FEF5E7" CornerRadius="0" >
+                                <Grid Padding="1" >
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition Width="Auto" />
+                                    </Grid.ColumnDefinitions>
+                                    <Image
+                                    Grid.Column="0"
+                                    Grid.RowSpan="2"
+                                    Source="{Binding Image}"
+                                    Aspect="AspectFill"
+                                    HeightRequest="60"
+                                    WidthRequest="60" />
+
+                                    <Label Grid.Column="1"
+                                    Text="{Binding FullName}"
+                                    VerticalTextAlignment="Start"
+                                    FontAttributes="Bold" 
+                                    Margin="10,15"/>
+                                    <Label Grid.Column="1"
+                                    Text="{Binding Company}"
+                                    VerticalTextAlignment="End"
+                                    FontAttributes="Bold" 
+                                    Margin="10,0"/>
+                                </Grid>
+                            </Frame>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>

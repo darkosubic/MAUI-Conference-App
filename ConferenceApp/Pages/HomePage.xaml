@@ -3,9 +3,91 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ConferenceApp.HomePage"
              Title="Home">
+    <ContentPage.Resources>
+        <Style TargetType="Label">
+            <Setter Property="HorizontalOptions" Value="Center" />
+            <Setter Property="VerticalOptions" Value="Center" />
+            <Setter Property="FontSize" Value="12" />
+            <Setter Property="TextColor" Value="DarkSlateGrey" />
+        </Style>
+
+        <Style x:Key="welcomeLabel" TargetType="Label">
+            <Setter Property="HorizontalOptions" Value="Center" />
+            <Setter Property="VerticalOptions" Value="Center" />
+            <Setter Property="FontSize" Value="18" />
+            <Setter Property="TextColor" Value="Red" />
+        </Style>
+
+        <Style x:Key="registerDateLabel"
+               TargetType="Label"
+               BasedOn="{StaticResource welcomeLabel}">
+            <Setter Property="FontAttributes" Value="Italic" />
+            <Setter Property="TextColor" Value="DarkSlateGrey" />
+        </Style>
+
+        <Style TargetType="Button">
+            <Setter Property="FontFamily" Value="RobotoBlack" />
+        </Style>
+
+    </ContentPage.Resources>
     <StackLayout Orientation="Vertical">
-        <Label Text="Welcome to the Home Page!!!"
-                VerticalOptions="Center" 
-                HorizontalOptions="Center" />
+        <Image Source="logo.png" HeightRequest="120" WidthRequest="120" Margin="15,30" HorizontalOptions="CenterAndExpand"></Image>
+
+        <Label Style="{StaticResource welcomeLabel}" Margin="15,10">Wellcome to the first official .Net Maui Conference!</Label>
+
+        <Label Style="{StaticResource registerDateLabel}" Margin="15,10">Signup for the conference starts on 22/04/2022</Label>
+
+        <Label LineBreakMode="WordWrap" Margin="15,10">First ever conference on .Net Maui starts soon. Reserve your spot as a presenter or as a Speaker and get to know your comunity in person or online..</Label>
+
+        <Label FontSize="Caption" Margin="15,10">Presenters</Label>
+
+        <CollectionView ItemsSource="{Binding FeaturedPresenters}"  ItemsLayout="HorizontalList">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid Padding="10">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <Image
+                               Grid.Column="0"
+                               Grid.RowSpan="2"
+                               Source="{Binding Image}"
+                               Aspect="AspectFill"
+                               HeightRequest="60"
+                               WidthRequest="60" />
+                        <Label Grid.Column="1"                               
+                               Grid.Row="0"
+                               Text="{Binding FullName}"
+                               FontAttributes="Bold" 
+                               Margin="10,0"/>
+                        <Label Grid.Column="1"                              
+                               Grid.Row="1"
+                               Text="{Binding Company}"
+                               FontAttributes="Bold" 
+                               Margin="10,0"/>
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Button x:Name="allPresentersNavigationButton"
+                    Grid.Row ="0" 
+                    Grid.Column="0" 
+                    HorizontalOptions="FillAndExpand" 
+                    ContentLayout="Right, 5" 
+                    CornerRadius="10" 
+                    Text="Click here to see all Presenters" 
+                    ImageSource="arrow_right.svg"
+                    Clicked="Button_Clicked"/>
+        </Grid>
     </StackLayout>
 </ContentPage>

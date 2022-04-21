@@ -8,23 +8,7 @@
     xmlns:pages="clr-namespace:ConferenceApp"
     x:DataType="viewmodels:ShellViewModel"
     Shell.FlyoutBehavior="Disabled">
-
-    <!--<Shell.Style>
-        <Style TargetType="TabBar">
-            <Setter Property="Shell.TabBarBackgroundColor"
-            Value="Red" />
-            <Setter Property="Shell.TabBarTitleColor"
-            Value="Black" />
-            <Setter Property="Shell.TabBarUnselectedColor"
-            Value="Green" />
-        </Style>
-
-    </Shell.Style>-->
-    <!--<ShellContent
-        Title="Hello, World!"
-        ContentTemplate="{DataTemplate local:MainPage}"
-        Route="MainPage" />-->
-
+    
     <TabBar>
         <TabBar.Style>
             <Style TargetType="TabBar">
@@ -44,8 +28,7 @@
              Icon="{Binding Presenters.Icon}">
             <ShellContent ContentTemplate="{DataTemplate pages:PresentersPage}" />
         </Tab>
-        <Tab Title="{Binding Agenda.Title}"
-             
+        <Tab Title="{Binding Agenda.Title}"             
              Icon="{Binding Agenda.Icon}">
             <ShellContent ContentTemplate="{DataTemplate pages:AgendaPage}" />
         </Tab>

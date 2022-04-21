@@ -5,5 +5,6 @@
              x:Class="ConferenceApp.App">
     <Application.Resources>
         <ResourceDictionary Source="Resources/Styles.xaml" />
+        <ResourceDictionary Source="Resources/LabelStyles.xaml" />
     </Application.Resources>
 </Application>

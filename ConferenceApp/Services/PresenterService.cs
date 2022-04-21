@@ -18,7 +18,11 @@ namespace ConferenceApp.Services
                 new PresentersBaseDto() { FullName = "Gustav J. Jepsen", Image = "male2.jpg", Company = "FFW Agency" },
                 new PresentersBaseDto() { FullName = "Claudia Lombardo", Image = "female2.jpg", Company = "FFW Agency" },
                 new PresentersBaseDto() { FullName = "Virpi Anderson", Image = "female3.jpg", Company = "FFW Agency" },
-                new PresentersBaseDto() { FullName = "Emilian Klaturov", Image = "male3.jpg", Company = "FFW Agency" }
+                new PresentersBaseDto() { FullName = "Emilian Klaturov", Image = "female4.jpg", Company = "FFW Agency" },
+                new PresentersBaseDto() { FullName = "Emilian Klaturov", Image = "male3.jpg", Company = "FFW Agency" },
+                new PresentersBaseDto() { FullName = "Emilian Klaturov", Image = "male4.jpg", Company = "FFW Agency" },
+                new PresentersBaseDto() { FullName = "Claudia Lombardo", Image = "female2.jpg", Company = "FFW Agency" },
+                new PresentersBaseDto() { FullName = "Virpi Anderson", Image = "female3.jpg", Company = "FFW Agency" }
             };
 
             return result;
